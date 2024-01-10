@@ -12,7 +12,7 @@ public class Polynomial{
     public Polynomial(Term... terms){
         this.start = free;
         for(Term t : terms){
-            if(t != null) {  // 以防存入的陣列中的null
+            if(t != null) {  // 以防將null存入的陣列中
                 termArray[free] = t;
                 free++;
             }

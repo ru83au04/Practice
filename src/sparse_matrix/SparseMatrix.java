@@ -41,7 +41,7 @@ public class SparseMatrix {
     static public Term[] trans(Term[] matrix){
         int[] rowSize = new int[100];              // 建立rowSize陣列，去記錄轉換後每個row上會有幾個元素
         int[] rowStarts = new int[100];            // 透過rowSize去計算每個row的首個元素的位置索引
-        Term[] result = new Term[matrix.length];
+        Term[] result = new Term[matrix.length];   // 轉換後的陣列
         for(Term t : matrix){
             rowSize[t.getColumn()]++;
         }
@@ -51,8 +51,8 @@ public class SparseMatrix {
         }
         for(int i = 0; i < result.length; i++){
             Term temp = new Term(matrix[i].getColumn(), matrix[i].getRow(), matrix[i].getValue());
-            result[rowStarts[matrix[i].getColumn()]] = temp;
-            rowStarts[matrix[i].getColumn()]++;
+            result[rowStarts[matrix[i].getColumn()]] = temp;  // 將轉換後的Term透過rowSize紀錄的位置存入result陣列
+            rowStarts[matrix[i].getColumn()]++;  // 移動rowSize的存入位置
         }
         return result;
     }
