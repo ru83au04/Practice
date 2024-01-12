@@ -28,4 +28,30 @@ public class Kmp {
         }
         return lps;
     }
+
+    public static int phaseTwo(String text, String pattern){
+        int[] lps = phaseOne(pattern);
+        int i = 0;
+        int j = 0;
+        while(i < text.length()){
+            if(j == 0 || pattern.charAt(j) == text.charAt(i)){
+                i++;
+                j++;
+            }
+            if(j == pattern.length()){
+                System.out.println("Pattern is searched in Text");
+                return i - j;
+            }
+            else if(i < text.length() && pattern.charAt(j) != text.charAt(i)){
+                if(j != 0){
+                    j = lps[j - 1];
+                }
+                else{
+                    i++;
+                }
+            }
+        }
+        System.out.println("Not found");
+        return -1;
+    }
 }
