@@ -13,9 +13,12 @@ public class SparseMatrix {
     public Term[] getMatrix(){
         return matrix;
     }
-    /*
-        將二維矩陣轉換為儲存Term的一維矩陣
-        Term的格式為(row, column, value)
+
+    /**
+     * 將二維矩陣轉換為儲存Term的一維矩陣
+     * Term的格式為(row, column, value)
+     * @param numberArray
+     * @return Term[]
      */
     public static Term[] getSparseMatrix(int[][] numberArray){
         Term[] newTerms = new Term[(numberArray[0].length * numberArray.length)];
@@ -34,9 +37,12 @@ public class SparseMatrix {
         }
         return result;
     }
-    /*
-        二維陣列的欄、列轉換
-        在轉換前需要將二維陣列轉換為Term的一維陣列
+
+    /**
+     * 二維陣列的欄、列轉換
+     * 在轉換前需要將二維陣列轉換為Term的一維陣列
+     * @param matrix
+     * @return Term[]
      */
     static public Term[] trans(Term[] matrix){
         int[] rowSize = new int[100];              // 建立rowSize陣列，去記錄轉換後每個row上會有幾個元素

@@ -1,13 +1,20 @@
 package polynomial;
 
+/**
+ * 將多項式已Term的形式存入靜態陣列
+ * 在同一個靜態內可以做多項式的加減法
+ * 並將結果存入同一個靜態陣列內
+ */
 
 public class Polynomial{
     public static Term[] termArray = new Term[100];
     public static int free = 0; // 陣列中還未使用空間的起始位置
     private int start, finish, length;
-    /*
-        將多項式的每個項目以Term的形式輸入
-        在建立多項式時會將多項式存入靜態陣列termArray中
+
+    /**
+     * 將多項式的每個項目以Term的形式輸入
+     * 在建立多項式時會將多項式存入靜態陣列termArray中
+     * @param terms
      */
     public Polynomial(Term... terms){
         this.start = free;
